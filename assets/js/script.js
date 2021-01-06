@@ -6,7 +6,7 @@ let questionsAnswers = [
         choice1: "choice2",
         choice2: "choice3",
         choice3: "choice4",
-        answer: "choice2"
+        answer: "two"
     },
     {
         question: "another question here",
@@ -14,7 +14,7 @@ let questionsAnswers = [
         choice1: "choice22",
         choice2: "choice23",
         choice3: "choice24",
-        answer: "choice3"
+        answer: "three"
     },
     {
         question: "a dumb question here",
@@ -22,7 +22,7 @@ let questionsAnswers = [
         choice1: "choice32",
         choice2: "choice33",
         choice3: "choice34",
-        answer: "choice4"
+        answer: "four"
     },
     {
         question: "a really stupid question here",
@@ -30,7 +30,7 @@ let questionsAnswers = [
         choice1: "choice42",
         choice2: "choice43",
         choice3: "choice44",
-        answer: "choice1"
+        answer: "one"
     }
 
 ]
@@ -50,29 +50,52 @@ function displayQuestion() {
     // remove the random number in the questionsLeft array
     questionsLeft.splice(questionsLeft.indexOf(randNum), 1);
 
-    // Use random number to display question and choices from object
     question.textContent = currentQstn["question"];
 
     for (let i = 0; i < choices.length; i++) {
         choices[i].textContent = currentQstn["choice" + i];
     }
 
-    let answer = currentQstn["answer"];
+    document.querySelector("#one").onclick = clickElement;
+    document.querySelector("#two").onclick = clickElement;
+    document.querySelector("#three").onclick = clickElement;
+    document.querySelector("#four").onclick = clickElement;
 
-    for (let i = 0; i <= choices.length; i++) {
-        if (i < choices.length) {
-            choices[i].addEventListener("click", validateAnswer);
-        } 
+    function clickElement() {
+        if (this.id === currentQstn["answer"]) {
+            check.textContent = "correct";
+            displayQuestion();
+        } else {
+            check.textContent = "WRONG!";
+            displayQuestion();
+        }
     }
+
+
+    if (questionsLeft.length === 0) {
+        window.location.href = "./highscores.html";
+    }
+
+    // let answer = currentQstn["answer"];
+
+    // for (let i = 0; i <= choices.length; i++) {
+    //     if (i < choices.length) {
+    //         choices[i].addEventListener("click", validateAnswer);
+    //     } 
+    // }
     
 }
 
-function validateAnswer() {
-    check.textContent = "correct";
-    displayQuestion();
-}
-
 displayQuestion();
+
+// function validateAnswer() {
+//     check.textContent = "correct";
+//     displayQuestion();
+// }
+
+
+
+
 
 
 
