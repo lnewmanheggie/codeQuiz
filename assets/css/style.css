@@ -60,14 +60,14 @@ p {
     text-align: center;
 }
 
-.question {
+.choice {
     background-color: rgb(136, 136, 245);
     padding: 1rem;
     margin-bottom: 0.5rem;
     width: 50vw;
 }
 
-.question:hover {
+.choice:hover {
     box-shadow: 2px 2px 5px 0.5px #6e6e6e;
     cursor: pointer;
 }
