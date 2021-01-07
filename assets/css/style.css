@@ -63,11 +63,40 @@ p {
 .choice {
     background-color: rgb(136, 136, 245);
     padding: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     width: 50vw;
 }
 
 .choice:hover {
-    box-shadow: 2px 2px 5px 0.5px #6e6e6e;
+    box-shadow: 2px 4px 8px 0 rgb(94, 94, 94);
     cursor: pointer;
+}
+
+.initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    width: 100vw;
+}
+
+input {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    .choice {
+        width: 80vw;
+    }
+
+    .initials {
+        flex-wrap: wrap;
+    }
 }
