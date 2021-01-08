@@ -1,23 +1,8 @@
-// I learned how do do the api request from Benjamin Siegel on https://www.youtube.com/watch?v=SgJ_femmsfg
-
-// window.onload = sendApiRequest;
-
-// async function sendApiRequest() {
-//     let response = await fetch(`https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple`);
-    
-//     let data = await response.json();
-    
-//     console.log(data.results[0]);
-//     data.results[0]["incorrect_answers"].push(data.results[0]["correct_answer"])
-//     console.log(data.results[0]["incorrect_answers"]);
-// }
-
-
 const question = document.body.querySelector("h2");
 const check = document.body.querySelector("p");
-const displayChoices = document.querySelector('#choices')
+const displayChoices = document.getElementById('choices')
 const counter = document.body.querySelector("#counter");
-const gameWindow = document.querySelector("#content");
+const gameWindow = document.getElementById("content");
 
 let finalScore;
 let currentScore = 0;
@@ -47,18 +32,18 @@ function displayQuestion() {
 
     question.textContent = currentQstn["question"];
 
-    displayChoices.textContent = '';
+    displayChoices.textContent = ''
     for (let i = 0; i < currentQstn.choices.length; i++) {
-        const choice = document.createElement('div');
-        choice.classList.add('choice');
-        choice.textContent = currentQstn.choices[i];
-        choice.addEventListener('click', validateAnswer);
+        const choice = document.createElement('div')
+        choice.classList.add('choice')
+        choice.textContent = currentQstn.choices[i]
+        choice.addEventListener('click', validateAnswer)
 
-        displayChoices.appendChild(choice);
+        displayChoices.appendChild(choice)
     }
 }
 
-function validateAnswer() {
+function validateAnswer(event) {
     if (this.textContent === questionsAnswers[index].answer) {
         currentScore++;
         check.textContent = "correct";
@@ -101,7 +86,7 @@ function saveScore() {
 
 function submitScore() {
     const score = {
-        player: this.previousSibling.value, // reads the value from enterInitials input
+        player: this.previousSibling.value,
         score: finalScore
     }
 
@@ -113,32 +98,15 @@ function submitScore() {
     })
 
     if (highscores.length === 5) {
-        highscores.pop();
+        highscores.pop()
     }
 
-    setScores(highscores);
-
-    window.location.href = "./highscores.html";
+    setScores(highscores)
 }
 
 function setScores(values) {
-    localStorage.setItem("highscores", JSON.stringify(values));
+    localStorage.setItem("highscores", JSON.stringify(values))
 }
 function getScores() {
-    return JSON.parse(localStorage.getItem("highscores")) || [];
+    return JSON.parse(localStorage.getItem("highscores")) || []
 }
-
-
-
-
-
-
-
-
-
-
-// window.location.href = "./highscores.html";
-
-
-
-
