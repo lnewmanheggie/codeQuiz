@@ -2,16 +2,22 @@
     font-family: Arial, Helvetica, sans-serif;    
 }
 
+body {
+    background: rgb(106,106,106);
+    background: radial-gradient(circle, rgba(106,106,106,1) 0%, rgba(241,241,241,1) 0%, rgba(208,208,251,1) 100%);
+}
+
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 80vh;
 }
 
 h1 {
     font-size: 4rem;
     text-align: center;
+    margin-bottom: 0;
 }
 
 a {
@@ -27,7 +33,7 @@ button {
     font-size: 1rem;
     margin-left: 5px;
     margin-right: 5px;
-    background-color: rgb(136, 136, 245);
+    background-color: #8888f5;
     border: none;
     color: white;
 }
@@ -39,30 +45,28 @@ button {
     align-items: center;
 }
 
+.index {
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
 /* Game Page */
 .counter {
     position: absolute;
     top: 0;
     right: 0%;
-}
-
-.counter, 
-.high-scores {
     padding: 10px;
     font-size: 1.2rem;
 }
 
-.high-scores {
-    position: absolute;
-	top: 0;
-	left: 0;
-}
 
 .container2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 90vh;
+    margin-left: 3rem;
+    margin-right: 3rem;
 }
 
 h2 {
@@ -73,6 +77,12 @@ h2 {
 p {
     font-size: 1.2rem;
     text-align: center;
+}
+
+.choice-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .choice {
@@ -104,6 +114,7 @@ input {
 
 .score {
     text-align: center;
+    font-size: 1.5rem;
 }
 
 .clear-scores {
@@ -116,7 +127,7 @@ input {
 
 @media only screen and (max-width: 600px) {
     h2 {
-        font-size: 1.7rem;
+        font-size: 1.2rem;
     }
 
     .choice {

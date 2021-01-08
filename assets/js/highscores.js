@@ -14,4 +14,5 @@ clear.addEventListener('click', clearStorage);
 
 function clearStorage() {
     localStorage.clear();
+    scores.textContent = '';
 }
