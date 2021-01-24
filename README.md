@@ -3,8 +3,6 @@ This quiz uses the Open Trivia Database API to generate random questions. The ap
 
 ![The Game](./assets/Quiz.gif)
 
-Link to deployed app:
-https://lnewmanheggie.github.io/randomQuiz/
+[View the deployed app here](https://lnewmanheggie.github.io/randomQuiz/)
 
-Link to repo:
-https://github.com/lnewmanheggie/randomQuiz
+

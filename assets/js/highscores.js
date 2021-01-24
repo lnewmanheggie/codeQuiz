@@ -10,9 +10,11 @@ for (let i = 0; i < parsedScores.length; i++) {
     scores.appendChild(score);
 }
 
-clear.addEventListener('click', clearStorage);
-
-function clearStorage() {
+const clearStorage = () => {
     localStorage.clear();
     scores.textContent = '';
 }
+
+clear.addEventListener('click', clearStorage);
+
+

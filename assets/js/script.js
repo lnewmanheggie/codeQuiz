@@ -12,14 +12,12 @@ let currentQstn = {};
 let questionCount = 10;
 
 
-start();
-
-function start() {
+const start = () => {
     setTimer();
     displayQuestion();
 }
 
-function setTimer() {
+const setTimer = () => {
     timerId = setInterval(function () {
         counter.textContent = secondsLeft;
         if (secondsLeft === 0) {
@@ -69,7 +67,7 @@ async function displayQuestion() {
 }
 
 // Algorithm from https://gomakethings.com/how-to-shuffle-an-array-with-vanilla-js/
-function shuffle(array) {
+const shuffle = (array) => {
 
 	let currentIndex = array.length;
 	let temporaryValue, randomIndex;
@@ -104,7 +102,7 @@ function validateAnswer() {
     }
 }
 
-function saveScore() {
+const saveScore = () => {
     clearInterval(timerId);
     displayChoices.textContent = ''
     question.textContent = "Quiz over!";
@@ -135,6 +133,10 @@ function saveScore() {
     newDiv.appendChild(restartButton);
 }
 
+const setScores = values => localStorage.setItem("highscores", JSON.stringify(values));
+
+const getScores = () => JSON.parse(localStorage.getItem("highscores")) || [];
+
 function submitScore() {
     const score = {
         player: this.previousSibling.value, // reads the value from enterInitials input
@@ -157,9 +159,5 @@ function submitScore() {
     window.location.href = "./highscores.html";
 }
 
-function setScores(values) {
-    localStorage.setItem("highscores", JSON.stringify(values));
-}
-function getScores() {
-    return JSON.parse(localStorage.getItem("highscores")) || [];
-}
+
+start();
